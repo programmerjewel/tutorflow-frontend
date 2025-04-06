@@ -33,6 +33,17 @@ const TestimonialSection = () => {
     },
   ];
 
+  const StarIcon = ({ filled }) => (
+    <svg
+      className={`w-6 h-6 inline-block ${filled ? "text-violet-900" : "text-gray-300"}`}
+      fill="currentColor"
+      viewBox="0 0 24 24"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path d="M12 2l2.4 7.2h7.6l-6 4.8 2.4 7.2-6-4.8-6 4.8 2.4-7.2-6-4.8h7.6z" />
+    </svg>
+  );
+
   return (
     <section className="py-16 bg-base-200">
       <div className="max-w-6xl mx-auto px-4">
@@ -62,24 +73,20 @@ const TestimonialSection = () => {
                     className="w-12 h-12 rounded-full mr-4 object-cover"
                   />
                   <div>
-                    <h3 className="text-lg font-semibold text-base-content">
+                    <h3 className="text-lg font-semibold">
                       {testimonial.name}
                     </h3>
-                    <div className="rating rating-sm">
+                    <div className="flex items-center">
+                      {/* Render 5 stars, filled based on the rounded rating */}
                       {[...Array(5)].map((_, i) => (
-                        <input
+                        <StarIcon
                           key={i}
-                          type="radio"
-                          name={`rating-${index}`}
-                          className="mask mask-star-2 bg-yellow-400"
-                          checked={
-                            Math.round(testimonial.rating) === i + 1
-                              ? true
-                              : false
-                          }
-                          readOnly
+                          filled={i < Math.round(testimonial.rating)}
                         />
                       ))}
+                      <span className="ml-2 text-base-content/80">
+                        {testimonial.rating}
+                      </span>
                     </div>
                   </div>
                 </div>

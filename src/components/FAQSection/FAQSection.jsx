@@ -73,14 +73,6 @@ const FAQSection = () => {
             </div>
           ))}
         </div>
-        <div className="text-center mt-12">
-          <a
-            href="/contact"
-            className="btn btn-primary btn-wide"
-          >
-            Still Have Questions? Contact Us
-          </a>
-        </div>
       </div>
     </section>
   );

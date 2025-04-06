@@ -2,8 +2,8 @@
 
 const StatSection = () => {
   return (
-    <div>
-      <h2 className="font-extrabold text-4xl text-violet-600">Discover the Power of TutorFlow in Numbers</h2>
+    <section className="py-12  w-11/12 mx-auto">
+      <h2 className="font-extrabold text-4xl text-violet-600 mb-6 text-center">Discover the Power of TutorFlow in Numbers</h2>
       <div className="grid gap-3 grid-cols-4">
         <div className="border border-gray-300 rounded-md">
           <h3><span>32,000+</span> Experienced Tutors</h3>
@@ -22,7 +22,7 @@ const StatSection = () => {
           <p>Learn from diverse tutors across the globe, bringing unique perspectives to your education.</p>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 

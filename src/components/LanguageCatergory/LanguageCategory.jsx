@@ -26,8 +26,8 @@ const LanguageCategory = () => {
   ];
   
   return (
-    <section>
-      <h2 className='font-extrabold text-4xl text-violet-600'>Explore Tutors by Language</h2>
+    <section className='py-12 w-11/12 mx-auto'>
+      <h2 className='text-center font-extrabold text-4xl text-violet-600 mb-6'>Explore Tutors by Language</h2>
       <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-2'>
         {
           categories.map((category, index)=>(

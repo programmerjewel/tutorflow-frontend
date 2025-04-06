@@ -1,11 +1,12 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 const Navbar = () => {
   const li = <>
             <li><NavLink to='/home'>Home</NavLink></li>
-            <li><NavLink to='/about'>About</NavLink></li>
-            <li><NavLink to='/explore'>Explore</NavLink></li>
+            <li><NavLink to='/find-tutors'>Find Tutors</NavLink></li>
+            <li><NavLink to='/explore'>Add Tutorials</NavLink></li>
+            <li><NavLink to='/explore'>Add Tutorials</NavLink></li>
           
           </>
   return (
@@ -48,7 +49,7 @@ const Navbar = () => {
         </ul>
       </div>
       <div className="navbar-end">
-        <a className="btn">Button</a>
+        <Link to='/login' className="btn">Log In</Link>
       </div>
     </div>
   );
