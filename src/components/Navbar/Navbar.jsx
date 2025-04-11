@@ -1,7 +1,20 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
+import AuthContext from "../../context/AuthContext/AuthContext";
+import logo from '../../assets/Tutorflow_logo.svg'
 
 const Navbar = () => {
+
+  const {user, signOutUser } = useContext(AuthContext);
+
+  const handleSignOut = () =>{
+    signOutUser()
+    .then(()=>{
+      console.log('successfully logged out!');
+    })
+    .catch(err =>console.log('failed to sign out', err));
+  }
+
   const li = <>
             <li><NavLink to='/'>Home</NavLink></li>
             <li><NavLink to='/findtutors'>Find Tutors</NavLink></li>
@@ -38,7 +51,7 @@ const Navbar = () => {
             }
           </ul>
         </div>
-        <a className="btn btn-ghost text-xl">daisyUI</a>
+        <Link className="flex gap-1.5 font-extrabold text-2xl text-violet-600"><img src={logo} alt="" className="w-7" />TutorFlow</Link>
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">
@@ -48,7 +61,10 @@ const Navbar = () => {
         </ul>
       </div>
       <div className="navbar-end">
-        <Link to='/login' className="btn">Log In</Link>
+        {
+          user? <><button onClick={handleSignOut} className="btn">Log Out</button></> : <><Link to='/login' className="btn">Log In</Link><Link to='/register' className="ml-2 btn btn-primary">Register</Link></>
+        }
+        
       </div>
     </div>
   );
